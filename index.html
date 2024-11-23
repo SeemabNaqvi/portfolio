@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello, World!</title>
+    
+    <style>
+    
+       body {
+           font-family: Arial, sans-serif;
+           background-color: #f4f4f9; 
+           color: #333; 
+           padding: 20px;
+       }
+
+       .center {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           margin-bottom: 20px;
+       }
+
+       .left-align {
+           text-align: left;
+           max-width: 600px;
+           margin: 0 auto;
+       }
+
+       ul {
+           list-style-type: none;
+           padding: 0;
+       }
+
+       ul li {
+           padding: 5px;
+           cursor: pointer;
+           transition: background-color 0.3s, color 0.3s;
+       }
+
+       ul li:hover {
+           background-color: #d1c4e9; 
+           color: #6200ea; 
+       }
+
+       .project {
+           display: flex;
+           justify-content: space-between;
+           flex-direction: row;
+           gap: 20px;
+       }
+
+       #btn {
+           padding: 10px 20px;
+           font-size: 16px;
+           cursor: pointer;
+           border: none;
+           border-radius: 5px;
+           background-color: #6200ea;
+           color: #fff;
+           transition: background-color 0.3s;
+           margin-top: 10px;
+       }
+
+       #btn:hover {
+           background-color: #3700b3;
+       }
+
+       #contact {
+           margin-top: 10px;
+       }
+    </style>
+</head>
+<body>
+  
+    <div class="center">
+       <h1>Seemab Naqvi</h1>
+       <h3>Masai Student</h3>
+    </div>
+    
+    <section class="left-align">
+       <h4>About</h4>
+       <p>I am a Masai Student</p>
+       <iframe src="https://drive.google.com/file/d/12Z-DDwADPSgomPtzRrT-nvkoDLrnD5Nf/preview" width="140" height="180" allow="autoplay"></iframe>
+    </section>
+    
+    <section class="left-align">
+       <h4>Skills</h4>
+       <ul id="skills-list">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JAVA</li>
+          <li>JavaScript</li>
+          <li>Gen AI</li>
+       </ul>
+    </section>
+    
+    <section class="left-align">
+       <h4>Projects</h4>
+       <div class="project">
+           <p><strong>Employee Management System</strong>: A software application designed to streamline and manage employee-related operations within an organization.</p>  
+           <p><strong>Weather Analysis App</strong>: A tool designed to provide users with detailed and real-time weather data, including temperature, humidity.</p>
+       </div>
+    </section>
+    
+    <section class="center">
+       <h4>Contact Information</h4>
+       <button id="btn">Show Contact Info</button>
+       <div id="contact" style="display:none;">
+           <p>Email: seemabnaqvi@gmail.com</p>
+           <p>Contact: 8787878778</p>
+       </div>
+    </section>
+
+    <script>
+       
+       let button = document.getElementById("btn");
+       let contact = document.getElementById("contact");
+       
+       button.addEventListener("click", function() {
+           if (contact.style.display === "none") {
+               contact.style.display = "block";
+               button.textContent = "Hide Contact Info";
+           } else {
+               contact.style.display = "none";
+               button.textContent = "Show Contact Info";
+           }
+       });
+
+       const skills = document.querySelectorAll("#skills-list li");
+       skills.forEach(skill => {
+           skill.addEventListener("mouseover", function() {
+               skill.style.backgroundColor = "#d1c4e9"; 
+               skill.style.color = "#6200ea"; 
+           });
+           skill.addEventListener("mouseout", function() {
+               skill.style.backgroundColor = ""; 
+               skill.style.color = ""; 
+           });
+       });
+    </script>
+</body>
+</html>
