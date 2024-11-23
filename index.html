@@ -4,7 +4,6 @@
     <title>Hello, World!</title>
     
     <style>
-    
        body {
            font-family: Arial, sans-serif;
            background-color: #f4f4f9; 
@@ -12,77 +11,52 @@
            padding: 20px;
        }
 
-       .center {
+       nav {
+           background-color: #6200ea;
+           color: white;
+           padding: 10px;
            display: flex;
-           flex-direction: column;
-           align-items: center;
-           margin-bottom: 20px;
-       }
-
-       .left-align {
-           text-align: left;
-           max-width: 600px;
-           margin: 0 auto;
-       }
-
-       ul {
-           list-style-type: none;
-           padding: 0;
-       }
-
-       ul li {
-           padding: 5px;
-           cursor: pointer;
-           transition: background-color 0.3s, color 0.3s;
-       }
-
-       ul li:hover {
-           background-color: #d1c4e9; 
-           color: #6200ea; 
-       }
-
-       .project {
-           display: flex;
-           justify-content: space-between;
-           flex-direction: row;
+           justify-content: center;
            gap: 20px;
        }
 
-       #btn {
-           padding: 10px 20px;
-           font-size: 16px;
-           cursor: pointer;
-           border: none;
-           border-radius: 5px;
-           background-color: #6200ea;
-           color: #fff;
-           transition: background-color 0.3s;
-           margin-top: 10px;
+       nav a {
+           color: white;
+           text-decoration: none;
+           font-weight: bold;
        }
 
-       #btn:hover {
-           background-color: #3700b3;
+       nav a:hover {
+           text-decoration: underline;
        }
 
-       #contact {
-           margin-top: 10px;
+       /* Sections styles */
+       section {
+           margin-top: 20px;
        }
     </style>
 </head>
 <body>
-  
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact-section">Contact</a>
+    </nav>
+
     <div class="center">
        <h1>Seemab Naqvi</h1>
        <h3>Masai Student</h3>
     </div>
     
-    <section class="left-align">
+    <section id="about" class="left-align">
        <h4>About</h4>
        <p>I am a Masai Student</p>
        <iframe src="https://drive.google.com/file/d/12Z-DDwADPSgomPtzRrT-nvkoDLrnD5Nf/preview" width="140" height="180" allow="autoplay"></iframe>
     </section>
     
-    <section class="left-align">
+    <section id="skills" class="left-align">
        <h4>Skills</h4>
        <ul id="skills-list">
           <li>HTML</li>
@@ -93,7 +67,7 @@
        </ul>
     </section>
     
-    <section class="left-align">
+    <section id="projects" class="left-align">
        <h4>Projects</h4>
        <div class="project">
            <p><strong>Employee Management System</strong>: A software application designed to streamline and manage employee-related operations within an organization.</p>  
@@ -101,7 +75,7 @@
        </div>
     </section>
     
-    <section class="center">
+    <section id="contact-section" class="center">
        <h4>Contact Information</h4>
        <button id="btn">Show Contact Info</button>
        <div id="contact" style="display:none;">
@@ -111,7 +85,7 @@
     </section>
 
     <script>
-       
+       // Contact Button Functionality
        let button = document.getElementById("btn");
        let contact = document.getElementById("contact");
        
@@ -125,15 +99,13 @@
            }
        });
 
-       const skills = document.querySelectorAll("#skills-list li");
-       skills.forEach(skill => {
-           skill.addEventListener("mouseover", function() {
-               skill.style.backgroundColor = "#d1c4e9"; 
-               skill.style.color = "#6200ea"; 
-           });
-           skill.addEventListener("mouseout", function() {
-               skill.style.backgroundColor = ""; 
-               skill.style.color = ""; 
+       // Introduced Bug: Navigation links do not navigate correctly
+       const navLinks = document.querySelectorAll("nav a");
+       navLinks.forEach(link => {
+           link.addEventListener("click", function(event) {
+               // Prevent default behavior (intentional bug)
+               event.preventDefault();
+               console.log("Navigation link clicked but not navigating!");
            });
        });
     </script>
